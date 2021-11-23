@@ -6,7 +6,7 @@
 /*   By: acamaras <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:54:45 by acamaras          #+#    #+#             */
-/*   Updated: 2021/11/22 16:22:44 by acamaras         ###   ########.fr       */
+/*   Updated: 2021/11/23 15:51:46 by acamaras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ void	ft_putstr_fd(char const *s, int fd);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void const *content, size_t content_size);
+void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 
 #endif
