@@ -18,6 +18,8 @@ static int	nb_len(long nb)
 	int	len;
 
 	len = 0;
+	if (n == 0)
+		return (1);
 	if (nb < 0)
 	{
 		nb = nb * -1;

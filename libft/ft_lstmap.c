@@ -13,6 +13,19 @@
 #include <stdlib.h>
 #include "libft.h"
 
+static void	free_list(t_list *head)
+{
+	t_list	*tmp;
+
+	while (head != NULL)
+	{
+		tmp = head;
+		head = head->next;
+		free(tmp->content);
+		free(tmp);
+	}
+}
+
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*fresh;
@@ -20,16 +33,19 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 
 	if (!lst || !f)
 		return (NULL);
-	fresh = ft_lstnew((*f)(lst)->content, (*f)(lst)->content_size);
+	fresh = f(lst);
 	if (!fresh)
 		return (NULL);
 	head = fresh;
 	while (lst->next != NULL)
 	{
 		lst = lst->next;
-		fresh->next = ft_lstnew((*f)(lst)->content, (*f)(lst)->content_size);
+		fresh->next = f(lst);
 		if (!fresh->next)
+		{
+			free_list(head);
 			return (NULL);
+		}
 		fresh = fresh->next;
 	}
 	return (head);
