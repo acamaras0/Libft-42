@@ -21,8 +21,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	minus = 1;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+	while (ft_iswhitespace(str[i]) == 0)
 	{
 		i++;
 	}

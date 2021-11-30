@@ -6,7 +6,7 @@
 /*   By: acamaras <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 12:54:45 by acamaras          #+#    #+#             */
-/*   Updated: 2021/11/23 19:05:24 by acamaras         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:03:45 by acamaras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,10 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int		ft_abs(int n);
+int		ft_count_words(char const *s, char c);
+int		ft_iswhitespace(int c);
+int		ft_nb_len(long nb);
+int		ft_power(int p, int base);
 
 #endif

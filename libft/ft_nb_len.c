@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_nb_len.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acamaras <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 17:39:18 by acamaras          #+#    #+#             */
-/*   Updated: 2021/11/16 18:40:47 by acamaras         ###   ########.fr       */
+/*   Created: 2021/11/25 14:21:48 by acamaras          #+#    #+#             */
+/*   Updated: 2021/11/25 14:22:37 by acamaras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-char	*ft_strtrim(char const *s)
+int	ft_nb_len(long nb)
 {
-	size_t		start;
-	size_t		end;
+	int	len;
 
-	if (!s)
-		return (NULL);
-	start = 0;
-	end = ft_strlen(s);
-	if (s == NULL)
-		return (NULL);
-	while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
-		start++;
-	while ((s[end] == '\0' || s[end] == ' '
-			||s[end] == '\n' || s[end] == '\t') && end != start)
-		end--;
-	return (ft_strsub(s, start, end - start + 1));
+	len = 0;
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
+	{
+		nb = nb * -1;
+		len++;
+	}
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		len++;
+	}
+	return (len);
 }

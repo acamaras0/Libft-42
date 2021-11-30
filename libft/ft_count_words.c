@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acamaras <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 17:39:18 by acamaras          #+#    #+#             */
-/*   Updated: 2021/11/16 18:40:47 by acamaras         ###   ########.fr       */
+/*   Created: 2021/11/25 14:26:04 by acamaras          #+#    #+#             */
+/*   Updated: 2021/11/25 14:26:23 by acamaras         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-char	*ft_strtrim(char const *s)
+int	ft_count_words(char const *s, char c)
 {
-	size_t		start;
-	size_t		end;
+	int	i;
+	int	word;
 
-	if (!s)
-		return (NULL);
-	start = 0;
-	end = ft_strlen(s);
-	if (s == NULL)
-		return (NULL);
-	while (s[start] == ' ' || s[start] == '\n' || s[start] == '\t')
-		start++;
-	while ((s[end] == '\0' || s[end] == ' '
-			||s[end] == '\n' || s[end] == '\t') && end != start)
-		end--;
-	return (ft_strsub(s, start, end - start + 1));
+	i = 0;
+	word = 0;
+	while (s[i])
+	{
+		if (s[i] != c && (s[i + 1] == c || s[i + 1] == 0))
+			word++;
+		i++;
+	}
+	return (word);
 }

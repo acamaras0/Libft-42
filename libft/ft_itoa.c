@@ -13,26 +13,6 @@
 #include "libft.h"
 #include <string.h>
 
-static int	nb_len(long nb)
-{
-	int	len;
-
-	len = 0;
-	if (n == 0)
-		return (1);
-	if (nb < 0)
-	{
-		nb = nb * -1;
-		len++;
-	}
-	while (nb > 0)
-	{
-		nb = nb / 10;
-		len++;
-	}
-	return (len);
-}
-
 static char	*helper( char *str, int i, long nb)
 {
 	str[i--] = '\0';
@@ -61,7 +41,7 @@ char	*ft_itoa(int n)
 	long	nb;
 
 	nb = n;
-	i = nb_len(n);
+	i = ft_nb_len(n);
 	str = (char *)malloc(sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
